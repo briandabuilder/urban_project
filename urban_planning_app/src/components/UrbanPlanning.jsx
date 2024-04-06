@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import HomePage from './HomePage';
-import { BrowserRouter as Router } from 'react-router-dom';
+import UrbanGame from './UrbanGame'
+import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
 
 function UrbanPlanning() {
     return (
         <Router>
-            <HomePage />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/game" element={<UrbanGame />} />
+            </Routes>
         </Router>
     )
 }

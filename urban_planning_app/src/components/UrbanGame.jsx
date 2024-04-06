@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 function UrbanGame() {
   return (
-    <div className="UrbanGame">
+    <div className="game">
       <h1>Hello World</h1>
     </div>
   );

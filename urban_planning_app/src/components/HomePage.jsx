@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import UrbanGame from './UrbanGame';
+import game from './UrbanGame';
 import { Button } from 'react-bootstrap';
-import ButtonLink from './ButtonLink';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from "react-router-dom";
 
 const customStyles = {
     content: {
@@ -21,6 +20,11 @@ const customStyles = {
 
 function HomePage() {
     let subtitle;
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+      let path = "game";
+      navigate(path);
+    }
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
 
@@ -52,10 +56,7 @@ function HomePage() {
                     <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hi there!</h2>
                     Welcome to Urban Planning Game! INSERT TUTORIAL TEXT HERE
                 </p>
-                <Routes>
-                  <Route path="./UrbanGame" element={ButtonLink} />
-                </Routes>
-                
+                <Button variant="success" onClick={routeChange}>Play</Button>
                 
                
             </Modal>
