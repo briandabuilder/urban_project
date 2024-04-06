@@ -22,7 +22,7 @@ function HomePage() {
     let subtitle;
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-      let path = "game";
+      let path = "UrbanGame";
       navigate(path);
     }
     const [modalIsOpen, setIsOpen] = React.useState(false);

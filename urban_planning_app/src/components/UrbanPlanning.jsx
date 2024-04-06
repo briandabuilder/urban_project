@@ -10,7 +10,7 @@ function UrbanPlanning() {
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/game" element={<UrbanGame />} />
+                <Route path="/UrbanGame" element={<UrbanGame />} />
             </Routes>
         </Router>
     )
