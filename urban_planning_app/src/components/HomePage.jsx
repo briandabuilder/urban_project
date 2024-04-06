@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import UrbanGame from './UrbanGame';
 import { Button } from 'react-bootstrap';
+import ButtonLink from './ButtonLink';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Modal from 'react-modal';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const customStyles = {
@@ -34,12 +36,9 @@ function HomePage() {
       setIsOpen(false);
     }
 
-    function onClick2() {
-      window.location.href="http://cnn.com";
-    }
-
     return (
         <>
+            
             <h1>Urban Planning Game</h1>
             <Button variant="success" onClick={openModal}>Get Started</Button>{' '}
             <Modal
@@ -53,7 +52,12 @@ function HomePage() {
                     <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hi there!</h2>
                     Welcome to Urban Planning Game! INSERT TUTORIAL TEXT HERE
                 </p>
-                <Button variant="success" >Play</Button>
+                <Routes>
+                  <Route path="./UrbanGame" element={ButtonLink} />
+                </Routes>
+                
+                
+               
             </Modal>
 
         </>
