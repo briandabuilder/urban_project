@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 function ProjectName() {
     return (
-        <h1>text</h1>
+        <h1>Urban Planning Simulation</h1>
 
     )
 }
