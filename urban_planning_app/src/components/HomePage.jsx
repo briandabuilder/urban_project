@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import UrbanGame from './UrbanGame';
 import { Button } from 'react-bootstrap';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const customStyles = {
@@ -15,17 +17,16 @@ const customStyles = {
     },
   };
 
-function ProjectName() {
+function HomePage() {
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
-  
+
     function openModal() {
       setIsOpen(true);
     }
   
     function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#f00';
+      subtitle.style.color = "#000000";
     }
   
     function closeModal() {
@@ -43,9 +44,10 @@ function ProjectName() {
                 contentLabel="Example Modal"
             >
                 <p>
-                    Hi there, welcome to Urban Planning Game! INSERT TUTORIAL TEXT HERE
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hi there!</h2>
+                    Welcome to Urban Planning Game! INSERT TUTORIAL TEXT HERE
                 </p>
-                <Button variant="success">Play</Button>
+                <Button variant="success"><Link>Play</Link></Button>
             </Modal>
 
         </>
@@ -53,4 +55,4 @@ function ProjectName() {
     )
 }
 
-export default ProjectName;
+export default HomePage;
