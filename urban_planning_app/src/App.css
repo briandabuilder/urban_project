@@ -39,9 +39,29 @@
 
 .UrbanGame-sidebar {
   position: fixed;
+  background: #d3d3d3;
   width: 200px;
   height: 100%;
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+.UrbanGame-ulli{
+  margin: 25px 0;
+  list-style: none;
+  text-align: left;
+  position: relative;
+  left: -40px;
+}
+
+.UrbanGame-ullia{
+  color: #000000;
+  padding: 0 30px;
+}
+
+.UrbanGame-ullia:hover{
+  color: #00008B;
+  margin-left: 20px;
+  transition: 0.4s;
 }
