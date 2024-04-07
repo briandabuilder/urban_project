@@ -38,13 +38,10 @@
 }
 
 .UrbanGame-sidebar {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-
-.UrbanGame-body {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }

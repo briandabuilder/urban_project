@@ -7,7 +7,8 @@ function UrbanGame() {
   return (
     <body>
       <h1 class="UrbanGame">Game</h1>
-      <div class="nav">
+      <div class="sidebar">
+        <hs>Menu</hs>
         <ul>
           <li>
             <a href="#">
