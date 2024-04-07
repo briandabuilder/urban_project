@@ -7,9 +7,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 function UrbanGame() {
   return (
     <body>
-      <h1>Game</h1>
+      <h1>Urban Planning</h1>
       <div class="UrbanGame-sidebar">
-        <hs>Money: xxxxxx</hs>
+        <h1 class="UrbanGame-money">Money: $10,000</h1>
         <ul>
           <li class="UrbanGame-ulli">
             <a class="UrbanGame-ullia" href="#">

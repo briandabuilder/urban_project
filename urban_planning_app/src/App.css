@@ -70,3 +70,20 @@
   position: relative;
   top: 500px;
 }
+
+ .UrbanGame-money {
+  color:#000000;
+  font-size: 19px;
+  background: #99AFB4;
+  text-transform: uppercase;
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  height: 7.5%;
+ }
+
+
+
+
+
+
