@@ -12,23 +12,34 @@ class Game {
         this.score = score; 
         this.grid = grid;
         
-        // hashtable values are in form: key, cost value, quantity, area per cluster, moveable?, added CO2
+        // hashtable values are in form: key, cost value, quantity, area per cluster, moveable?, added CO2, happiness
 
-        let ht = {
-            "nat": [0, 290, [1, 1], false, 0], // nature
-            "res": [100, 4, [2, 2], false, 0], // residential
-            "road": [100, 0, [1, 1], true, 20], // road
-            "rail": [100, 0, [1, 1], true, 10],
-            "g": [100, 0, [1, 1], true, 15], // green road
-            "rec": [100, 0, [4, 4], true, 0], // recreational
-            "occ": [100, 6, [3, 3], false, 0] // occupational
+        let blocks = {
+            nat: [0, 270, [1, 1], false, 0, 10], // nature
+            res: [100, 12, [2, 2], false, 0, 0], // residential
+            road: [100, 0, [1, 1], true, 20, 5], // road
+            rail: [100, 0, [1, 1], true, 10, 7], // rail
+            green: [100, 0, [1, 1], true, 15, 6], // green road
+            rec: [100, 0, [4, 4], true, 0, 10], // recreational
+            occ: [100, 18, [3, 3], false, 0, 0] // occupational
         }
 
         let gameMap = [
-            [null, null, null],
-            [null, null, null],
-            [null, null, null]  
-
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat],
+            [blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat],
+            [blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.res, blocks.res, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat, blocks.nat],
+            [blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.nat, blocks.occ, blocks.occ, blocks.occ, blocks.nat, blocks.nat]
         ]
     }
 
@@ -40,20 +51,6 @@ class Game {
         moneyBack = ht[removedBlock][0];
         moneySpent = ht[addedBlock][0];
         money = money - moneySpent + moneyBack;
-    }
-
-    isEditable (x, y) {
-        tile = gameMap[y][x];
-        if (tile == null ||
-            tile == "e" ||
-            tile == "r" ||
-            tile == "bl" ||
-            tile == "bs") {
-                return true;
-            }
-        else {
-            return false;
-        }
     }
 
     popWarning(message) {
