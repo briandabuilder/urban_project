@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.UrbanGame-sidebar {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.UrbanGame-body {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+}

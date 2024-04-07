@@ -55,6 +55,9 @@ function HomePage() {
                 <p>
                     <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hi there!</h2>
                     Welcome to Urban Planning Game! INSERT TUTORIAL TEXT HERE
+                    
+                    In this simulation, you will be taking the role as city designer for
+                    You have 
                 </p>
                 <Button variant="success" onClick={routeChange}>Play</Button>
                 
